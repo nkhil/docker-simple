@@ -4,6 +4,10 @@ const dbfuncs = require('./lib/database/helpers');
 
 const app = express();
 
+app.get('/ping', (req, res) => {
+  res.status(200).json({ status: 'OK' });
+});
+
 app.get('/', async (req, res) => {
   try {
     const things = await dbfuncs.getThings();
@@ -23,7 +27,6 @@ app.post('/', async (req, res) => {
 });
 
 async function init() {
-  console.log('init!')
   await db.connect()
   return app
 }

@@ -21,6 +21,15 @@ async function connect() {
   }
 }
 
+async function disconnect() {
+  try {
+    await mongoose.connection.close();
+  } catch (error) {
+    console.trace(error)
+  }
+}
+
 module.exports = {
   connect,
+  disconnect,
 }

@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "jest": {
+    "testEnvironment": "node"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node .",
     "dev": "nodemon ."
   },
@@ -14,5 +17,9 @@
     "dotenv": "8.2.0",
     "express": "4.17.1",
     "mongoose": "^5.11.15"
+  },
+  "devDependencies": {
+    "jest": "26.6.3",
+    "supertest": "6.1.3"
   }
 }
