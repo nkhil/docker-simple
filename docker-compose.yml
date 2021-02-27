@@ -1,0 +1,21 @@
+version: "3"
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    expose:
+      - 8080
+    environment:
+      MONGO_CONNECTION_STRING: mongodb://mongo:27017/things?authSource=admin&retryWrites=true&w=majority
+    depends_on:
+      - mongo
+    command: node --use_strict index.js
+  mongo:
+    image: mongo:4
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
+    expose:
+      - 27017
